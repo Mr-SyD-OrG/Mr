@@ -3,10 +3,10 @@ from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait,
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
 from pyrogram.types import Message, InlineKeyboardButton
 from pyrogram import Client, filters, enums
-from database.users_chats_db import db
 from info import ADMINS
 
-        
+db = Database(DATABASE_URL, DATABASE_NAME)
+
 @Client.on_message(filters.command("broadcast") & filters.user(ADMINS) & filters.reply)
 async def broadcast(bot, message):
     users = await db.get_all_users()
