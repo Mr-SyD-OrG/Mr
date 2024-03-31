@@ -1,14 +1,14 @@
 class script(object):  
     START_TXT = """<b>✨ Hᴇʟʟᴏ {user}.
-
 <blockquote>Mʏ Nᴀᴍᴇ Is {bot}.</blockquote>
 
-I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇ Fᴏʀ Yᴏᴜ Jᴜsᴛ Aᴅᴅ Mᴇ Iɴ Yᴏᴜʀ Gʀᴏᴜᴘ Oʀ Jᴏɪɴ Oᴜʀ Gʀᴏᴜᴘ</b>"""
+I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇ Fᴏʀ Yᴏᴜ Jᴜsᴛ Tʏᴩᴇ Aɴᴅ Sᴇɴᴅ Tʜᴇ Mᴏᴠɪᴇ Aɴᴅ Yᴇᴀʀ ✨
+<blockquote>Oɴᴇ Oꜰ Tʜᴇ Wᴏʀʟᴅꜱ Cᴏᴏʟᴇꜱᴛ, Bɪɢɢᴇꜱᴛ Aɴᴅ Fɪɴᴇꜱᴛ Bᴀꜱᴇ</blockquote></b>"""
     
     HELP_TXT = "Hᴇʏ {}\nHᴇʀᴇ Mꜱ Mʏ Hᴇʟᴩ"
 
     ABOUT_TXT = """<b>✯ Mʏ ɴᴀᴍᴇ: {}
-✯ Dᴇᴠᴇʟᴏᴩᴇʀ: <a herf=https://t.me/Mr_MKN>ᴍʀ.ᴍᴋɴ ᴛɢ</a>
+✯ Dᴇᴠᴇʟᴏᴩᴇʀ: <a herf=https://t.me/syd_xyz>ᴍʀ.ꜱʏᴅ 📯</a>
 ✯ Cᴏᴅᴇᴅ Oɴ: ᴩʏᴛʜᴏɴ/ᴩʏʀᴏɢʀᴀᴍ
 ✯ Mʏ DᴀᴛᴀBᴀꜱᴇ: ᴍᴏɴɢᴏ-ᴅʙ
 ✯ Mʏ Sᴇʀᴠᴇʀ: ᴀɴʏᴡʜᴇʀᴇ
