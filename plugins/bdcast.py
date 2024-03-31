@@ -26,10 +26,10 @@ logging.getLogger().setLevel(logging.INFO)
 logging.getLogger("cinemagoer").setLevel(logging.ERROR)
 logger = logging.getLogger(__name__)
 
-DATABASE_NAME = Cluster0
-DATABASE_URL = mongodb+srv://MrMov:MrMov@cluster0.jazglqb.mongodb.net
-BOT_TOKEN = 6006903252:AAGtqD6NIFHvZkqK1Pmhgfs8hkDXCg7u_iM
-LOG_CHANNEL = -1002139569083
+DATABASE_NAME = 'Cluster0'
+DATABASE_URL = 'mongodb+srv://MrMov:MrMov@cluster0.jazglqb.mongodb.net/'
+BOT_TOKEN = '6006903252:AAGtqD6NIFHvZkqK1Pmhgfs8hkDXCg7u_iM'
+LOG_CHANNEL = '-1002139569083'
 
 class Bot(Client):
 
