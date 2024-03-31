@@ -26,8 +26,11 @@ logging.getLogger().setLevel(logging.INFO)
 logging.getLogger("cinemagoer").setLevel(logging.ERROR)
 logger = logging.getLogger(__name__)
 
+DATABASE_NAME =
+DATABASE_URL = 
 BOT_TOKEN = 6006903252:AAGtqD6NIFHvZkqK1Pmhgfs8hkDXCg7u_iM
 LOG_CHANNEL = -1002139569083
+
 class Bot(Client):
 
     def __init__(self):
