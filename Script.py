@@ -219,12 +219,14 @@ Wᴇʟᴄᴏᴍᴇ ᴛᴏ {chat}.
 
 ꜱʜᴀʀᴇ & ꜱᴜᴩᴩᴏʀᴛ, ʀᴇqᴜᴇꜱᴛ ʏᴏᴜ ᴡᴀɴᴛᴇᴅ ᴍᴏᴠɪᴇꜱ"""
   
-    IMDB_TEMPLATE = """<b>Qᴜᴇʀʏ: {query}</b>
+    IMDB_TEMPLATE = """<b>Mᴏᴠɪᴇ Rᴇꜱᴜʟᴛ Fᴏʀ ☄️: {query}</b>
 
 🏷 Tɪᴛʟᴇ: <a href={url}>{title}</a>
 🎭 Gᴇɴʀᴇꜱ: {genres}
 📆 Yᴇᴀʀ: <a href={url}/releaseinfo>{year}</a>
-🌟 Rᴀᴛɪɴɢ: <a href={url}/ratings>{rating}</a>/10"""
+🌟 Rᴀᴛɪɴɢ: <a href={url}/ratings>{rating}</a>/10
+<blockquote>Iꜰ Dᴏɴᴛ ꜰɪɴᴅ ʏᴏᴜʀ RᴇQᴜɪʀᴇᴅ ꜰɪLᴇ </blockquote>
+<blockquote>⚠️Dɪꜱᴄʟᴀɪᴍᴇʀ; Tʜɪꜱ MᴇꜱꜱΔɢᴇ Wɪʟʟ Bᴇ DᴇʟEᴛᴇᴅ Sᴏ0ɴ..... 🌡️</blockquote>"""
    
   
  
