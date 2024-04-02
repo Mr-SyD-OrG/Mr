@@ -2,7 +2,7 @@ import asyncio, re, ast, math, logging, pyrogram
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Script import script
 from utils import get_shortlink 
-from info import AUTH_USERS, PM_IMDB, SINGLE_BUTTON, PROTECT_CONTENT, SPELL_CHECK_REPLY, IMDB_TEMPLATE, IMDB_DELET_TIME, PMFILTER, G_FILTER, SHORT_URL, SHORT_API
+from info import AUTH_USERS, PM_IMDB, SINGLE_BUTTON, PROTECT_CONTENT, SPELL_CHECK_REPLY, IMDB_TEMPLATE, IMDB_DELET_TIME, PMFILTER, G_FILTER, SHORT_URL, SHORT_API, NOR_CHANNEL
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters, enums 
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
@@ -92,7 +92,7 @@ async def pm_spoll_tester(bot, query):
     else:
         reqstr1 = query.from_user.id if query.from_user else 0
         reqstr = await bot.get_users(reqstr1)
-        await bot.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)))
+        await bot.send_message(chat_id=NOR_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)))
         k = await query.message.edit('Tʜɪs Mᴏᴠɪᴇ Nᴏᴛ Fᴏᴜɴᴅ Iɴ Dᴀᴛᴀʙᴀsᴇ')
         await asyncio.sleep(10)
         await k.delete()
@@ -111,7 +111,7 @@ async def pm_AutoFilter(client, msg, pmspoll=False):
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files: return await pm_spoll_choker(msg)              
         else:
-            await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
+            await client.send_message(chat_id=NOR_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
             return 
     else:
         message = msg.message.reply_to_message  # msg will be callback query
