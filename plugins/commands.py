@@ -45,9 +45,9 @@ async def start(client, message):
         await message.reply_photo(photo=random.choice(PICS), caption=START_MESSAGE.format(user=message.from_user.mention, bot=client.mention), reply_markup=InlineKeyboardMarkup(buttons), parse_mode=enums.ParseMode.HTML)
         return await m.delete()
         
-    if AUTH_CHANNEL and not await is_subscribed(client, message):
+    if AUTH_CHANNEL and not await is_revoked(client, message):
         try:
-            invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
+            invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL),creates_join_request=True)
         except ChatAdminRequired:
             logger.error("MAKE SURE BOT IS ADMIN IN FORCESUB CHANNEL")
             return
@@ -123,7 +123,6 @@ async def start(client, message):
                 continue
             await asyncio.sleep(1) 
         return await sts.delete()
-        
     elif data.split("-", 1)[0] == "DSTORE":
         sts = await message.reply("PLEASE WAIT....")
         b_string = data.split("-", 1)[1]
@@ -168,7 +167,6 @@ async def start(client, message):
                     continue
             await asyncio.sleep(1) 
         return await sts.delete()
-        
 
     files_ = await get_file_details(file_id)           
     if not files_:
@@ -202,7 +200,11 @@ async def start(client, message):
     await client.send_cached_media(chat_id=message.from_user.id, file_id=file_id, caption=f_caption, protect_content=True if pre == 'filep' else False,)
                     
 
-
+async def is_revoked(bot, query)
+      try:
+          if pending_join_request_count = pending_join_request_count + 1
+          pass
+          else print(e)
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
     if isinstance(CHANNELS, (int, str)): channels = [CHANNELS]
