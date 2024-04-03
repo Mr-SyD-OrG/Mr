@@ -47,7 +47,7 @@ async def start(client, message):
         
     if AUTH_CHANNEL and not await is_revoked(client, message):
         try:
-            invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL),creates_join_request=True)
+            invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
         except ChatAdminRequired:
             logger.error("MAKE SURE BOT IS ADMIN IN FORCESUB CHANNEL")
             return
@@ -199,12 +199,6 @@ async def start(client, message):
         f_caption = f"{files.file_name}"
     await client.send_cached_media(chat_id=message.from_user.id, file_id=file_id, caption=f_caption, protect_content=True if pre == 'filep' else False,)
                     
-
-async def is_revoked(bot, query)
-      try:
-          if pending_join_request_count = pending_join_request_count + 1
-          pass
-          else print(e)
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
     if isinstance(CHANNELS, (int, str)): channels = [CHANNELS]
