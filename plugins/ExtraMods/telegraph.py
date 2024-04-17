@@ -31,10 +31,11 @@ async def telegraph_upload(bot, update):
         text=f"<b>Link :-</b>\n\n<code>https://graph.org{response[0]}</code>",
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup( [[
-            InlineKeyboardButton(text="Open Link", url=f"https://graph.org{response[0]}"),
-            InlineKeyboardButton(text="Share Link", url=f"https://telegram.me/share/url?url=https://graph.org{response[0]}")
+            InlineKeyboardButton(text="Oᴩᴇɴ Lɪɴᴋ", url=f"https://graph.org{response[0]}"),
+            InlineKeyboardButton(text="βᴏᴛ𝘴 🏞️", url="https://t.me/Bot_Cracker/17"),
+            InlineKeyboardButton(text="Sʜᴀʀᴇ Lɪɴᴋ", url=f"https://telegram.me/share/url?url=https://graph.org{response[0]}")
             ],[
-            InlineKeyboardButton(text="✗ Close ✗", callback_data="close")
+            InlineKeyboardButton(text="✗ Cꪶꪮ𝘴ꫀ ✗", callback_data="close")
             ]])
         )
     
