@@ -156,4 +156,6 @@ class Database:
 
 
 db = Database(DATABASE_URL, DATABASE_NAME)
+bd = Database(DB_URL, DATABASE_NAME)
+dd = Database(SYD_URL, DATABASE_NAME)
 
