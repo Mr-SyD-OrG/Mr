@@ -26,13 +26,19 @@ CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHAN
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_channel = environ.get('AUTH_CHANNEL')
+syd_channel = environ.get('SYD_CHANNEL')
+sud_channel = environ.get('SUD_CHANNEL')
 auth_grp = environ.get('AUTH_GROUP')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
+SYD_CHANNEL = int(syd_channel) if syd_channel and id_pattern.search(syd_channel) else None
+SUD_CHANNEL = int(sud_channel) if sud_channel and id_pattern.search(sud_channel) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 NOR_CHANNEL = -1001893049931
 
 # MongoDB information
 DATABASE_URL = environ.get('DATABASE_URL', "")
+DB_URL = environ.get('DB_URL', "")
+SYD_URL = environ.get('SYD_URL', "")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 FILE_DB_URL = environ.get("FILE_DB_URL", DATABASE_URL)
 FILE_DB_NAME = environ.get("FILE_DB_NAME", DATABASE_NAME)
