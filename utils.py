@@ -7,10 +7,12 @@ from imdb import Cinemagoer
 from typing import Union, List
 from datetime import datetime, timedelta
 from database.users_chats_db import db
+from database.joinsydreq import JoinReqs
 from bs4 import BeautifulSoup
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
+syd_db = JoinReqs
 
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\((buttonurl|buttonalert):(?:/{0,2})(.+?)(:same)?\))")
 BANNED = {}
@@ -34,9 +36,9 @@ class temp(object):
     GP_SPELL = {}
 
 async def is_subscribed(bot, query):
-    if REQUEST_TO_JOIN_MODE == True and join_db().isActive():
+    if REQUEST_TO_JOIN_MODE == True and syd_db().isActive():
         try:
-            user = await join_db().get_user(query.from_user.id)
+            user = await syd_db().get_user(query.from_user.id)
             if user and user["user_id"] == query.from_user.id:
                 return True
             else:
