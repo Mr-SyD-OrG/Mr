@@ -13,10 +13,6 @@ I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇ Fᴏʀ Yᴏᴜ Jᴜsᴛ Tʏᴩᴇ Aɴᴅ
 ✯ Mʏ Sᴇʀᴠᴇʀ: ᴀɴʏᴡʜᴇʀᴇ
 ✯ Mʏ Vᴇʀꜱɪᴏɴ: ᴩʀᴏꜰᴇꜱꜱᴏʀ-ʙᴏᴛ ᴠ4.5.0</b>"""
    
-    SOURCE_TXT = """<b>NOTE:</b>
-- ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ʜᴇʀᴇ ◉› :<a href=https://github.com/MrMKN/PROFESSOR-BOT>𝐏𝐑𝐎𝐅𝐄𝐒𝐒𝐎𝐑-𝐁𝐎𝐓</a>
-
-<b>ᴅᴇᴠ: <a herf=https://t.me/MKN>ᴍʀ.ᴍᴛɢ</a></b>"""
     NORSLTS =" h{} ®{} ©{}"
 
     FILE_TXT = """<b>➤ Hᴇʟᴘ Fᴏʀ Fɪʟᴇ Sᴛᴏʀᴇ</b>
@@ -226,7 +222,7 @@ Wᴇʟᴄᴏᴍᴇ ᴛᴏ {chat}.
 🎭 Gᴇɴʀᴇꜱ: {genres}
 📆 Yᴇᴀʀ: <a href={url}/releaseinfo>{year}</a>
 🌟 Rᴀᴛɪɴɢ: <a href={url}/ratings>{rating}</a>/10
-<blockquote>Iꜰ Dᴏɴᴛ ꜰɪɴᴅ ʏᴏᴜʀ RᴇQᴜɪʀᴇᴅ ꜰɪLᴇ </blockquote>
+<blockquote>Iꜰ Dᴏɴᴛ ꜰɪɴᴅ ʏᴏᴜʀ RᴇQᴜɪʀᴇᴅ ꜰɪLᴇ, ʀᴇᴩᴏʀᴛ ᴏᴡɴᴇʀ..</blockquote>
 <blockquote>⚠️Dɪꜱᴄʟᴀɪᴍᴇʀ; Tʜɪꜱ MᴇꜱꜱΔɢᴇ Wɪʟʟ Bᴇ DᴇʟEᴛᴇᴅ Sᴏ0ɴ..... 🌡️</blockquote>"""
    
   
