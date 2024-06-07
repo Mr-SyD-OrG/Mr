@@ -37,8 +37,8 @@ NOR_CHANNEL = -1001893049931
 
 # MongoDB information
 DATABASE_URL = environ.get('DATABASE_URL', "")
-DB_URL = environ.get('DB_URL', "")
-SYD_URL = environ.get('SYD_URL', "")
+DB_URL = environ.get('DB_URL', DATABASE_URL)
+SYD_URL = environ.get('SYD_URL', DATABASE_URL)
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 FILE_DB_URL = environ.get("FILE_DB_URL", DATABASE_URL)
 FILE_DB_NAME = environ.get("FILE_DB_NAME", DATABASE_NAME)
