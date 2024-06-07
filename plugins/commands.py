@@ -5,12 +5,14 @@ from pyrogram import Client, filters, enums
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
+from database.joinsydreq import JoinReqs
 from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, START_MESSAGE, FORCE_SUB_TEXT, SUPPORT_CHAT, REQUEST_TO_JOIN_MODE, TRY_AGAIN_BTN
 from utils import get_settings, get_size, is_subscribed, save_group_settings, temp
 from database.connections_mdb import active_connection
 
 logger = logging.getLogger(__name__)
 BATCH_FILES = {}
+syd_db = JoinReqs
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
@@ -405,5 +407,22 @@ async def geg_template(client, message):
     template = settings['template']
     await sts.edit(f"Cᴜʀʀᴇɴᴛ Tᴇᴍᴘʟᴀᴛᴇ Fᴏʀ {title} Iꜱ\n\n{template}")
 
+@Client.on_message(filters.command("totalrequests") & filters.private & filters.user(ADMINS))
+async def total_requests(client, message):
+    if syd_db().isActive():
+        total = await syd_db().get_all_users_count()
+        await message.reply_text(
+            text=f"Total Requests: {total}",
+            parse_mode=enums.ParseMode.MARKDOWN,
+            disable_web_page_preview=True
+        )
 
-
+@Client.on_message(filters.command("purgerequests") & filters.private & filters.user(ADMINS))
+async def purge_requests(client, message):   
+    if syd_db().isActive():
+        await syd_db().delete_all_users()
+        await message.reply_text(
+            text="Purged All Requests.",
+            parse_mode=enums.ParseMode.MARKDOWN,
+            disable_web_page_preview=True
+        )
