@@ -97,7 +97,6 @@ async def start(client, message):
             parse_mode=enums.ParseMode.HTML
         )
         return
-        
     data = message.command[1]
     try:
         pre, file_id = data.split('_', 1)
