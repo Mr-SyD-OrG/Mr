@@ -3,7 +3,7 @@ from Script import script
 from database.users_chats_db import db
 from pyrogram import Client, filters, enums
 from pyrogram.errors import ChatAdminRequired, FloodWait
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import *
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from database.joinsydreq import JoinReqs
 from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, START_MESSAGE, FORCE_SUB_TEXT, SUPPORT_CHAT, REQUEST_TO_JOIN_MODE, TRY_AGAIN_BTN
@@ -12,7 +12,7 @@ from database.connections_mdb import active_connection
 
 logger = logging.getLogger(__name__)
 BATCH_FILES = {}
-syd_db = JoinReqs
+join_db = JoinReqs
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
@@ -329,7 +329,7 @@ async def settings(client, message):
             ],[
             InlineKeyboardButton(f"ɪᴍᴅʙ ɪɴ ꜰɪʟᴛᴇʀ : {'ᴏɴ' if settings['imdb'] else 'ᴏꜰꜰ'}", f'setgs#imdb#{settings["imdb"]}#{str(grp_id)}')
             ],[
-            InlineKeyboardButton(f"ꜱᴩᴇʟʟɪɴɢ ᴄʜᴇᴄᴋ : {'ᴏɴ' if settings['spell_check'] else 'ᴏꜰꜰ'}", f'setgs#spell_check#{settings["spell_check"]}#{str(grp_id)}')
+            InlineKeyboardButton(f"ꜱelsɪɴɢ ᴄʜᴇᴄᴋ : {'ᴏɴ' if settings['spell_check'] else 'ᴏꜰꜰ'}", f'setgs#spell_check#{settings["spell_check"]}#{str(grp_id)}')
             ],[
             InlineKeyboardButton(f"ᴡᴇʟᴄᴏᴍᴇ ᴍᴇꜱꜱᴀɢᴇ : {'ᴏɴ' if settings['welcome'] else 'ᴏꜰꜰ'}", f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}')
         ]]
@@ -409,8 +409,8 @@ async def geg_template(client, message):
 
 @Client.on_message(filters.command("totalrequests") & filters.private & filters.user(ADMINS))
 async def total_requests(client, message):
-    if syd_db().isActive():
-        total = await syd_db().get_all_users_count()
+    if join_db().isActive():
+        total = await join_db().get_all_users_count()
         await message.reply_text(
             text=f"Total Requests: {total}",
             parse_mode=enums.ParseMode.MARKDOWN,
@@ -419,8 +419,8 @@ async def total_requests(client, message):
 
 @Client.on_message(filters.command("purgerequests") & filters.private & filters.user(ADMINS))
 async def purge_requests(client, message):   
-    if syd_db().isActive():
-        await syd_db().delete_all_users()
+    if join_db().isActive():
+        await join_db().delete_all_users()
         await message.reply_text(
             text="Purged All Requests.",
             parse_mode=enums.ParseMode.MARKDOWN,
