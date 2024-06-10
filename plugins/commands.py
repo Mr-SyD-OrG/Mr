@@ -1,4 +1,4 @@
-import os, re, json, base64, logging, random, asyncio
+import os, re, json, base64, logging, random, asyncio, string, base64, sys
 from Script import script
 from database.users_chats_db import db
 from pyrogram import Client, filters, enums
@@ -6,6 +6,7 @@ from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import *
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from database.joinsydreq import JoinReqs
+from urllib.parse import quote_plus
 from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, START_MESSAGE, FORCE_SUB_TEXT, SUPPORT_CHAT, REQUEST_TO_JOIN_MODE, TRY_AGAIN_BTN
 from utils import get_settings, get_size, is_subscribed, save_group_settings, temp
 from database.connections_mdb import active_connection
@@ -13,7 +14,7 @@ from database.connections_mdb import active_connection
 logger = logging.getLogger(__name__)
 BATCH_FILES = {}
 join_db = JoinReqs
-PREMIUM_AND_REFERAL_MODE = False
+
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     await message.react(emoji="👀")
