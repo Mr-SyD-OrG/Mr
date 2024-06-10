@@ -49,38 +49,20 @@ async def pub_is_subscribed(bot, query, channel):
             pass
     return btn
     
-async def is_subscribed(bot, query):
+async def is_sydsubscribed(bot, query):
+    if await db.find_join_req(query.from_user.id):
+        return True
     try:
-        if REQUEST_TO_JOIN_MODE and join_db().isActive():
-            user = await join_db().get_user(query.from_user.id)
-            if user and user["user_id"] == query.from_user.id:
-                return True
-
-            try:
-                user_data = await bot.get_chat_member(AUTH_CHANNEL, query.from_user.id)
-            except UserNotParticipant:
-                return False
-            except Exception as e:
-                logger.exception(f"Error checking chat member status in join mode: {e}")
-                return False
-            else:
-                if user_data.status != enums.ChatMemberStatus.BANNED:
-                    return True
-        else:
-            try:
-                user = await bot.get_chat_member(AUTH_CHANNEL, query.from_user.id)
-            except UserNotParticipant:
-                return False
-            except Exception as e:
-                logger.exception(f"Error checking chat member status: {e}")
-                return False
-            else:
-                if user.status != enums.ChatMemberStatus.BANNED:
-                    return True
-        return False
+        user = await bot.get_chat_member(AUTH_CHANNEL, query.from_user.id)
+    except UserNotParticipant:
+        pass
     except Exception as e:
-        logger.exception(f"Error in is_subscribed function: {e}")
-        return False
+        logger.exception(e)
+    else:
+        if user.status != enums.ChatMemberStatus.BANNED:
+            return True
+
+    return False
 
 
 
