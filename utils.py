@@ -1,5 +1,5 @@
 import logging, os, re, asyncio, requests, aiohttp 
-from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid                             
+from pyrogram.errors import *                           
 from pyrogram.types import Message, InlineKeyboardButton
 from pyrogram import filters, enums
 from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, SHORT_URL, SHORT_API, REQUEST_TO_JOIN_MODE
@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-syd_db = JoinReqs
+join_db = JoinReqs
 
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\((buttonurl|buttonalert):(?:/{0,2})(.+?)(:same)?\))")
 BANNED = {}
@@ -36,9 +36,9 @@ class temp(object):
     GP_SPELL = {}
 
 async def is_subscribed(bot, query):
-    if REQUEST_TO_JOIN_MODE == True and syd_db().isActive():
+    if REQUEST_TO_JOIN_MODE == True and join_db().isActive():
         try:
-            user = await syd_db().get_user(query.from_user.id)
+            user = await join_db().get_user(query.from_user.id)
             if user and user["user_id"] == query.from_user.id:
                 return True
             else:
