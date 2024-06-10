@@ -80,19 +80,6 @@ async def start(client, message):
             parse_mode=enums.ParseMode.MARKDOWN
             )
         return
-    if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
-        buttons = [[
-            InlineKeyboardButton("➕️ Aᴅᴅ Bʀᴏ Tᴏ Yᴏᴜʀ Cʜᴀᴛ ➕", url=f"http://t.me/Pro_Moviez_Bot?startgroup=true")
-            ],[
-            InlineKeyboardButton("Gʀᴏᴜᴩ 📯", url='https://t.me/malayalam_requester_bot'),
-            InlineKeyboardButton("Cʜᴀɴɴᴇʟ 🔈", url="https://t.me/Mod_Moviez_X")
-            ],[      
-            InlineKeyboardButton("Bᴏᴛ Uᴩᴅᴀᴛᴇꜱ 💡", url="https://t.me/bot_cracker")
-        ]]
-        m = await message.reply_sticker("CAACAgUAAxkBAAEDQLdmCQGcAU3KEhugr5RXnwk5np57YQACxwIAAse-kFcVaahOICZWWB4E")
-        await asyncio.sleep(2)
-        await message.reply_photo(photo=random.choice(PICS), caption=START_MESSAGE.format(user=message.from_user.mention, bot=client.mention), reply_markup=InlineKeyboardMarkup(buttons), parse_mode=enums.ParseMode.HTML)
-        return await m.delete()
         
     data = message.command[1]
     try:
