@@ -24,7 +24,7 @@ async def start(client, message):
             ],[
             InlineKeyboardButton('ℹ️ Hᴇʟᴩ ℹ️', url=f"https://t.me/{temp.U_NAME}?start=help")
         ]]
-        await message.reply(START_MESSAGE.format(user=message.from_user.mention if message.from_user else message.chat.title, bot=client.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)                    
+        await message.reply(START_TXT.format(user=message.from_user.mention if message.from_user else message.chat.title, bot=client.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)                    
         await asyncio.sleep(2) 
         if not await db.get_chat(message.chat.id):
             total = await client.get_chat_members_count(message.chat.id)
@@ -45,7 +45,7 @@ async def start(client, message):
         ]]
         m = await message.reply_sticker("CAACAgUAAxkBAAEDQLdmCQGcAU3KEhugr5RXnwk5np57YQACxwIAAse-kFcVaahOICZWWB4E") 
         await asyncio.sleep(2)
-        await message.reply_photo(photo=random.choice(PICS), caption=START_MESSAGE.format(user=message.from_user.mention, bot=client.mention), reply_markup=InlineKeyboardMarkup(buttons), parse_mode=enums.ParseMode.HTML)
+        await message.reply_photo(photo=random.choice(PICS), caption=START_TXT.format(user=message.from_user.mention, bot=client.mention), reply_markup=InlineKeyboardMarkup(buttons), parse_mode=enums.ParseMode.HTML)
         return await m.delete()
         
     if AUTH_CHANNEL and not await is_subscribed(client, message):
@@ -80,6 +80,23 @@ async def start(client, message):
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode=enums.ParseMode.MARKDOWN
             )
+        return
+    if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
+        buttons = [[
+            InlineKeyboardButton("➕️ Aᴅᴅ Bʀᴏ Tᴏ Yᴏᴜʀ Cʜᴀᴛ ➕", url=f"http://t.me/Pro_Moviez_Bot?startgroup=true")
+            ],[
+            InlineKeyboardButton("Gʀᴏᴜᴩ 📯", url='https://t.me/malayalam_requester_bot'),
+            InlineKeyboardButton("Cʜᴀɴɴᴇʟ 🔈", url="https://t.me/Mod_Moviez_X")
+            ],[      
+            InlineKeyboardButton("Bᴏᴛ Uᴩᴅᴀᴛᴇꜱ 💡", url="https://t.me/bot_cracker")
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)      
+        await message.reply_photo(
+            photo=random.choice(PICS),
+            caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
         return
     data = message.command[1]
     try:
