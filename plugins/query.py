@@ -8,7 +8,7 @@ from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerId
 
 # Helper Function
 from Script import script
-from utils import get_size,  is_sydsubscribed, get_poster, search_gagala, temp, get_settings, save_group_settings, get_shortlink, get_time, humanbytes 
+from utils import get_size,  is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings, get_shortlink, get_time, humanbytes 
 from .ExtraMods.carbon import make_carbon
 
 # Database Function 
@@ -209,7 +209,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
      
     elif query.data.startswith("checksub"):
-        if AUTH_CHANNEL and not await is_sydsubscribed(client, query):
+        if AUTH_CHANNEL and not await is_subscribed(client, query):
             return await query.answer("I Lɪᴋᴇ Yᴏᴜʀ Sᴍᴀʀᴛɴᴇss, Bᴜᴛ Dᴏɴ'ᴛ Bᴇ Oᴠᴇʀsᴍᴀʀᴛ Oᴋᴀʏ 😏", show_alert=True)
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
